@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package napakalaki;
 
 /**
@@ -20,7 +15,7 @@ public class Monster {
 
     /* Atributo de tipo Prize y BadConsequence */
     private Prize price;
-    private BadConsequence bc;
+    private BadConsequence badConsequence;
     
     /* Constructor*/
     
@@ -28,7 +23,7 @@ public class Monster {
         
         this.name = name;
         this.combatLevel = level;
-        this.bc = bc;
+        this.badConsequence = bc;
         this.price = price;
     }
     
@@ -49,6 +44,28 @@ public class Monster {
     public int getCombatLevel() {
         return combatLevel;
     }
+
+    /**
+     * Método getPrice()
+     * Devuelve el buen royo
+     * @return  price de tipo Prize
+     */
+    public Prize getPrice() {
+        return price;
+    }
+
+    /**
+     * Método getBadConsequence()
+     * Devuelve el mal royo
+     * @return badConsequence de tipo BadConsequence
+     */
+    public BadConsequence getBadConsequence() {
+        return badConsequence;
+    }
+
+    
+    
+    
     
     /**
      * Método toString
@@ -56,8 +73,8 @@ public class Monster {
      */
     @Override
     public String toString() {
-        return "Monster = " + name + ", combatLevel = " 
-                +  combatLevel + ", Price: " +  price 
-                + ", " + bc ;
+        return "Monster = " + this.name + ", combatLevel = " 
+                +  this.combatLevel + ", Price: " +  this.price 
+                + ", " + this.badConsequence ;
     }
 }

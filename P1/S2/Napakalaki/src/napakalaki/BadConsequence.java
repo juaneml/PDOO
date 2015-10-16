@@ -125,11 +125,11 @@ public class BadConsequence {
      */
     @Override
     public String toString() {
-        return "BadConsequence = " +  text + ", levels = " +  levels 
-                + ", nVisibleTreasures = "  + nVisibleTreasures 
-                + ", nHiddenTreasures = " +  nHiddenTreasures 
-                + ", death = " +  death + ", specificHiddenTreasures = " 
-                +  specificHiddenTreasures + ", specificVisibleTreasures = " 
-                +  specificVisibleTreasures ;
+        return "BadConsequence = " +  this.text + ", levels = " +  this.levels 
+                + ", nVisibleTreasures = "  + this.nVisibleTreasures 
+                + ", nHiddenTreasures = " +  this.nHiddenTreasures 
+                + ", death = " +  this.death + ", specificHiddenTreasures = " 
+                +  this.specificHiddenTreasures + ", specificVisibleTreasures = " 
+                +  this.specificVisibleTreasures ;
     }
 }
