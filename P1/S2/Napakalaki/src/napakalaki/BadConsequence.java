@@ -128,8 +128,8 @@ public class BadConsequence {
         return "BadConsequence = " +  this.text + ", levels = " +  this.levels 
                 + ", nVisibleTreasures = "  + this.nVisibleTreasures 
                 + ", nHiddenTreasures = " +  this.nHiddenTreasures 
-                + ", death = " +  this.death + ", specificHiddenTreasures = " 
-                +  this.specificHiddenTreasures + ", specificVisibleTreasures = " 
-                +  this.specificVisibleTreasures ;
+                + ", death = " +  this.death + ", specificVisibleTreasures = " 
+                +  this.specificVisibleTreasures + ", specificHiddenTreasures = " 
+                +  this.specificHiddenTreasures  ;
     }
 }
