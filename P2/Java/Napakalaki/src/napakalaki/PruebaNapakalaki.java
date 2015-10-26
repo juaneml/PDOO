@@ -6,7 +6,7 @@ import java.util.Arrays;
 /**
  *
  * @author juane
- * @version 1.1
+ * @version 2.1
  */
 public class PruebaNapakalaki {
 
@@ -173,7 +173,7 @@ public class PruebaNapakalaki {
        
        // Bicéfalo
        tVisible = new ArrayList(Arrays.asList(TreasureKind.ONEHAND));
-       tHidden = new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS));
+       tHidden = new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS));;
        badConsequence = new BadConsequence("Te faltan manos para tanta cabeza. "
                + "Pierdes 3 niveles y tus tesoros visibles de las manos",3,tVisible,tHidden);
        prize = new Prize(1,1);

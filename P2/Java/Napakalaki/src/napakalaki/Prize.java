@@ -3,7 +3,7 @@ package napakalaki;
 /**
  *
  * @author juane
- * @version 1.1
+ * @version 2.1
  * Clase Prize para el buen rollo
  */
 public class Prize {
