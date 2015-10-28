@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 /**
  *
- * @author juane
+ * @author juane y Raúl
  * @version 1.1
  */
 public class PruebaNapakalaki {
@@ -202,12 +202,18 @@ public class PruebaNapakalaki {
        int perLevel;
        
        total = 0;
+       int nivel_pV;
+       int nivel_pH;
        System.out.println("Mal rollo que implica sólo la pérdida de niveles"+"\n");
        
        for(int i = 0; i < monstruos.size();i++){
            perLevel = monstruos.get(i).getBadConsequence().getLevels();
-         
-           if(perLevel > 0 ){
+           tVisible = monstruos.get(i).getBadConsequence().getSpecificVisibleTreasures();
+           tHidden = monstruos.get(i).getBadConsequence().getSpecificHiddenTreasures();
+           nivel_pV = monstruos.get(i).getBadConsequence().getnVisibleTreasures();
+           nivel_pH =monstruos.get(i).getBadConsequence().getnHiddenTreasures();
+           if( perLevel > 0 && (tVisible.isEmpty() && tHidden.isEmpty() ) && (nivel_pV == 0  && nivel_pH == 0) ) {
+               
                System.out.println(monstruos.get(i)+"\n");
                total++;
            }
