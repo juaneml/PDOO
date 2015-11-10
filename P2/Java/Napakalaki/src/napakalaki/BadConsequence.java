@@ -72,7 +72,15 @@ public class BadConsequence {
      * @return 
      */
     public boolean isEmpty(){
-        return false; //cambiar
+        
+        if(this.nHiddenTreasures==0 && this.nVisibleTreasures==0 
+                && this.levels == 0  && this.death == false
+                && this.specificVisibleTreasures.isEmpty() 
+                && this.specificHiddenTreasures.isEmpty()){
+            return true;
+        }
+        else
+            return false; 
     }
     
      /**
@@ -92,7 +100,7 @@ public class BadConsequence {
      *
      * @return nVisibleTreasures de tipo int
      */
-    public int getnVisibleTreasures() {
+    public int geNVisibleTreasures() {
         return this.nVisibleTreasures;
     }
     
@@ -103,7 +111,7 @@ public class BadConsequence {
      *
      * @return nHiddenTreasures de tipo int
      */
-    public int getnHiddenTreasures() {
+    public int getNHiddenTreasures() {
         return this.nHiddenTreasures;
     }
     

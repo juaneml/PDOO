@@ -1,7 +1,9 @@
 #encoding: utf-8
 # author: Juane
 #Versión 1.0
-require 'TreasureKind.rb'
+require_relative 'TreasureKind.rb'
+require_relative 'Monster.rb'
+require_relative 'BadConsequence.rb'
 class Prize    
     
     def initialize(treasures,level)
@@ -9,16 +11,9 @@ class Prize
         @levels = level
     end
  
-    #Método de consulta primera forma
-=begin
-def treasures
-    @treasures
-  end
-  
-  def level
-    @levels
-  end
-=end
+     #Método de lectura, get
+    attr_reader :treasures
+    attr_reader :levels
   
   
     #Método toString
@@ -27,9 +22,6 @@ def treasures
         "Treasures =  #{@treasures} Niveles ganados =   #{@levels}"
     end
   
-    #Método de escritura y lectura segunda forma
-    attr_accessor :treasures
-    attr_accessor :levels
   
     #Método solo lectura
     # attr_reader	

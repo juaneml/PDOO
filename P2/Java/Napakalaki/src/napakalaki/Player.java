@@ -1,11 +1,20 @@
 package napakalaki;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author juane
  * @version 2.1
  */
 public class Player {
+    static final int MAXLEVEL = 10; // <<constant>>
+    Player enemy; //Relación asímismo 
+    
+    /*Relaciones */
+    private ArrayList<Treasure> hiddenTreasures = new ArrayList();
+    private ArrayList<Treasure> visibleTreasures = new ArrayList();
+    private BadConsequence pendingBadConsequence = null;
     /** Atributos de la clase
      * 
      */
@@ -18,6 +27,10 @@ public class Player {
     
     public Player(String name) {
         this.name = name;
+        this.level = 1;
+        this.dead = false;
+        this.canISteal = false;
+        
     }
 
     /**
@@ -32,22 +45,29 @@ public class Player {
      * Método bringToLife()
      */
     private void bringToLife(){
-        
+        this.dead = false;
     }
     
     /**
      * Método getCombatLevel()
      * @return el nivel de combate del jugador
+     * Recorremos el array con el número de tesoros visibles para añadirles el bonus
      */
     private int getCombatLevel() {
+        int sum_bonus = 0;
+        for(int i=0; i < this.visibleTreasures.size();i++){
+            sum_bonus = visibleTreasures.get(i).getBonus()+sum_bonus;
+        }
+        this.level = level+sum_bonus;
         return this.level;
+        
     }
     /**
      * Método incrementLevels
      * @param l 
      */
     private void incrementLevels( int l){
-        
+        this.level = this.level+l;
     }
     
     /**
@@ -55,7 +75,9 @@ public class Player {
      * @param l 
      */
     private void decrementLevels (int l){
-        
+        if(this.level >= 1){
+            this.level = this.level -l;
+        }
     }
     
     /**
@@ -63,7 +85,7 @@ public class Player {
      * @param b 
      */
     private void setPendingBadConsequence(BadConsequence b){
-        
+        this.pendingBadConsequence = b;
     }
     
     /**
@@ -93,11 +115,22 @@ public class Player {
     
     /**
      * Método howManyVisibleTreasures (TreasureKind tKind)
+     * Recorremos el array con los tesoros visibles
+     * si el tipo de tesoro se encuentra en el array de
+     * tesoros visibles incrementamos la variable local de
+     * la función num, si no tenemos ese tipo devuelve 0
      * @param tKind
-     * @return 
+     * @return numero de tesoros visiblees de tipo @param tKind
      */
     private int howManyVisibleTreasures(TreasureKind tKind){
-        return 0; //cambiar
+        
+        int num = 0;
+        
+        for (Treasure t: visibleTreasures){
+            if(t.getType() == tKind)
+                num++;
+        }
+        return num;
     }
     
     /**
@@ -105,6 +138,9 @@ public class Player {
      */
     private void dielfNoTreasures (){
         
+        if(this.visibleTreasures.isEmpty() && this.hiddenTreasures.isEmpty())
+            this.dead = true;
+                
     }
     
     /**
@@ -168,7 +204,17 @@ public class Player {
      * @return 
      */
     public boolean validState(){
-        return false; //cambiar
+        
+        boolean valid;
+        
+        if(this.pendingBadConsequence.isEmpty() && this.hiddenTreasures.size()<4){
+            valid = true;
+        }
+                    
+        else
+            valid = false;
+        
+        return valid; 
     }
     
     /**
@@ -180,10 +226,12 @@ public class Player {
     
     /**
      * Método getLevels()
-     * @return 
+     * Devulve el nivel del jugador
+     * @return level
      */
     public int getLevels(){
-        return 0; //cambiar
+        
+        return this.level; 
     }
     
     /**
@@ -196,10 +244,12 @@ public class Player {
     
     /**
      * Método setEnemy(Player enemy)
+     * Asigna valor al atributo que referencia al enemigo 
+     * del jugador
      * @param enemy 
      */
     public void setEnemy(Player enemy){
-        
+        this.enemy = enemy;
     }
     
     /**
@@ -215,20 +265,34 @@ public class Player {
      * @return 
      */
     public boolean canISteal(){
-        return false; // cambiar
+        return false; 
     }
     /**
      * Método canYouGiveMeAtreasure()
+     * Devuelve true si el jugador tiene tesoros para 
+     * ser robados por otro jugador 
+     * false en caso contrario
      * @return 
      */
     private boolean canYouGiveMeAtreasure(){
-        return false; // cambiar
+      
+        if(!this.hiddenTreasures.isEmpty())
+            return true;
+        
+        else
+           return false;
+                    
+          
     }
     
     /**
      * Método haveStolen()
+     * Cambia el atributo CanISteal a false
+     * cuando el jugador roba un tesoro
      */
     private void haveStolen(){
+        if(!this.hiddenTreasures.isEmpty())
+            this.canISteal = false;
         
     }
     

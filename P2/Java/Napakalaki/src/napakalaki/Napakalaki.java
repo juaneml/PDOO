@@ -1,4 +1,3 @@
-
 package napakalaki;
 
 import java.util.ArrayList;
@@ -12,9 +11,19 @@ import java.util.ArrayList;
 public class Napakalaki {
     private static final Napakalaki instance = null;
     
+    /* Relaciones con las clases */
+    
+    private Monster currentMonster; // Relación con los monstruos    
+    private CardDealer dealer; // Relación con CardDealer
+    private Player currentPlayer; // Relación con Player
+    private ArrayList<Player> players; // Relación con Player
+    
     /**
      * Constructor privado
      */
+    
+    
+            
     private Napakalaki(){
         
     }

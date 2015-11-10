@@ -26,10 +26,21 @@ class Monster
     
     end
   
-     attr_accessor :name
-     attr_accessor :combatLevel
-     attr_accessor :price
-     attr_accessor :badconsequence
+    ## Métodos get
+    attr_reader :name
+    attr_reader :combatLevel 
+    atrr_reader :badconsequence
+    
+   
+    
+    def getLevelsGained
+        
+    end
+    
+    def getTreasureGained
+        
+    end
+
     def to_s
         "Monster =  #{@name}  , combatLevel =   #{@combatLevel} ,  #{@badconsequence} ,  Price:  #{@price} "      
     end

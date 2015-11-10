@@ -13,18 +13,18 @@ public class Monster {
     private String name; // nombre del monstruo
     private int combatLevel; // nivel de combate del monstruo
 
-    /* Atributo de tipo Prize y BadConsequence */
-    private Prize price;
+    /* Relaciones atributo de tipo Prize y BadConsequence */
+    private Prize price; 
     private BadConsequence badConsequence;
-    
+     
     /* Constructor*/
     
-    Monster(String name, int level, BadConsequence bc, Prize price){
+    Monster(String n, int l, BadConsequence b, Prize p){
         
-        this.name = name;
-        this.combatLevel = level;
-        this.badConsequence = bc;
-        this.price = price;
+        this.name = n;
+        this.combatLevel = l;
+        this.badConsequence = b;
+        this.price = p;
     }
     
     /**
@@ -56,27 +56,36 @@ public class Monster {
     
     /**
      * Método getLevelsGained()
+     * Devuelve el número de niveles ganados proporcionados por su buen rollo
      * @return 
      */
     public int getLevelsGained(){
-        return 0; //cambiar
+        int level_win =   this.price.getLevels();
+        
+        return level_win; 
     }
     
     /**
      * Método getTreasuresGained()
+     * Devuelve el número de tesoros ganados proporcionados por su buen rollo
      * @return 
      */
     public int getTreasuresGained(){
-        return 0; //cambiar
+        int treasure_win = this.price.getTreasures();
+        
+        return treasure_win; 
     }
-    /**
-     * Método getPrice()
-     * Devuelve el buen royo
-     * @return  price de tipo Prize
-     */
-    public Prize getPrice() {
-        return price;
-    }
+    
+    
+//    
+//    /**
+//     * Método getPrice()
+//     * Devuelve el buen royo
+//     * @return  price de tipo Prize
+//     */
+//    public Prize getPrice() {
+//        return price;
+//    }
 
     
     
