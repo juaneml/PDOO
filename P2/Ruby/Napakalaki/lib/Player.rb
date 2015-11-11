@@ -1,16 +1,17 @@
 
 class Player   
-    
+    @@MAXLEVEL = 10
     #constructor
-    def initialize(name,pending,hiddenTreasures,visibleTreasures)
+    
+    def initialize(name)
         @name = name
         @level = 1
-        @dead = true
-        @canISteal = true
+        @dead = false
+        @canISteal = false
         @enemy = self
-        @pendigBadConsequence = pending
-        @hiddenTreasures = hiddenTreasures
-        @visibleTreasures = visibleTreasures
+        @pendigBadConsequence = BadConsequence.new
+        @hiddenTreasures = Array.new
+        @visibleTreasures = Array.new
     
     end
     
@@ -29,13 +30,13 @@ class Player
     
     def getCombatLevel
          sum_bonus = 0
-         i =0
+         i = 0
          while i < @visibleTreasures.size
              i = i+1
-             sum_bonus =@visibleTreasures.fetch(i).getBonus+sum_bonus
+             sum_bonus = @visibleTreasures.fetch(i).bonus + sum_bonus
          end
          
-        @level = level+sum_bonus
+        @level = @level+sum_bonus
        
     end
     
@@ -45,7 +46,7 @@ class Player
     end
      
     def decrementLevels(l)
-       if @level >= 1
+       if @level > 1
             @level = @level -l;
        end
     end
@@ -74,8 +75,9 @@ class Player
     def howManyVisibleTreasures(tkind)
         num = 0
         
-        for  t in 0..@visibleTreasures.size-1
-            if t.getType == tKind
+#        for  t in 0..@visibleTreasures.size-1
+            @visibleTreasures.each do |t|
+            if t.type == tkind
                 num = num +1
             end
         end    
@@ -83,9 +85,13 @@ class Player
     end
      
     def dieIfNoTreasures()
-        if @visibleTreasures.isEmpty &&@hiddenTreasures.isEmpty
+        if @visibleTreasures.empty? &&@hiddenTreasures.empty?
             @dead = true
+            
+        else
+            @dead = false
         end
+        
     end
     
     #final método privados
@@ -121,12 +127,11 @@ class Player
     
     def validState()          
         valid        
-        if @pendingBadConsequence.isEmpty && this.hiddenTreasures.size < 4
-            valid = true;
+        if @pendingBadConsequence.empty? && @hiddenTreasures.size <= 4
+            valid = true
         
-                    
         else
-            valid = false;       
+            valid = false      
         end
         
         valid 
@@ -163,7 +168,8 @@ class Player
     
     def canYouGiveMeAtreasures()
         puedes = false
-          if @hiddenTreasures.isEmpty
+        
+        if @hiddenTreasures.empty?
             puedes = true
         
           end
@@ -171,7 +177,12 @@ class Player
     end
     
     def haveStolen()
-        @canISteal
+        
+        if @hiddenTreasures.empty?
+            @canISteal = false
+        else
+            @canISteal = true
+        end
     end
     
     public

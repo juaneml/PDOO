@@ -77,7 +77,7 @@ public class CardDealer {
      * Método initMonsterCarDeck()
      */
     private void initMonsterCardDeck(){
-        BadConsequence badConsequence ;  // mal royo
+       BadConsequence badConsequence ;  // mal royo
        Prize prize; // buen royo
       
        
@@ -123,7 +123,7 @@ public class CardDealer {
        
        //El gorrón en el umbral  
        
-       badConsequence = new BadConsequence("Pierdes todos tus tesoros visibles",0,10,0);
+       badConsequence = new BadConsequence("Pierdes todos tus tesoros visibles",0,BadConsequence.MAXTREASURES,0);
        prize = new Prize(3,1);       
        this.unusedMonster.add(new Monster("El gorrón en el umbral",10,badConsequence,prize));
        
@@ -307,4 +307,10 @@ public class CardDealer {
     public void initCards(){
         
     }
+
+    @Override
+    public String toString() {
+        return "CardDealer{" + "unusedMonster=" + unusedMonster + ", usedMonsters=" + usedMonsters + ", unusedTreasures=" + unusedTreasures + ", usedTreasures=" + usedTreasures + '}';
+    }
+    
 }

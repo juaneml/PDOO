@@ -11,6 +11,7 @@ import java.util.ArrayList;
  */
 public class BadConsequence {
    /* si no se pone nada visibilidad de package*/ 
+   /*constante*/
    static final int MAXTREASURES = 10;
     /**
      * Atributos propios de la clase *
@@ -74,7 +75,7 @@ public class BadConsequence {
     public boolean isEmpty(){
         
         if(this.nHiddenTreasures==0 && this.nVisibleTreasures==0 
-                && this.levels == 0  && this.death == false
+                && this.death == false
                 && this.specificVisibleTreasures.isEmpty() 
                 && this.specificHiddenTreasures.isEmpty()){
             return true;
@@ -169,10 +170,6 @@ public class BadConsequence {
     }
 
    
-
-    
-
-    
 
     /**
      * Método isDeath() Devuelve true o false del mal royo de tipo muerte

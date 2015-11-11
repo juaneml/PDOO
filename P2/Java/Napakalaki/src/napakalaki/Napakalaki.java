@@ -16,7 +16,7 @@ public class Napakalaki {
     private Monster currentMonster; // Relación con los monstruos    
     private CardDealer dealer; // Relación con CardDealer
     private Player currentPlayer; // Relación con Player
-    private ArrayList<Player> players; // Relación con Player
+    private ArrayList<Player> players = new ArrayList(); // Relación con Player
     
     /**
      * Constructor privado

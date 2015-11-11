@@ -14,7 +14,7 @@ public class Player {
     /*Relaciones */
     private ArrayList<Treasure> hiddenTreasures = new ArrayList();
     private ArrayList<Treasure> visibleTreasures = new ArrayList();
-    private BadConsequence pendingBadConsequence = null;
+    private BadConsequence pendingBadConsequence;
     /** Atributos de la clase
      * 
      */
@@ -75,7 +75,7 @@ public class Player {
      * @param l 
      */
     private void decrementLevels (int l){
-        if(this.level >= 1){
+        if(this.level > 1){
             this.level = this.level -l;
         }
     }
@@ -204,17 +204,14 @@ public class Player {
      * @return 
      */
     public boolean validState(){
-        
-        boolean valid;
-        
-        if(this.pendingBadConsequence.isEmpty() && this.hiddenTreasures.size()<4){
-            valid = true;
+          
+        if(this.pendingBadConsequence.isEmpty() && this.hiddenTreasures.size()<= 4 ){
+           return true;
         }
                     
         else
-            valid = false;
+           return false;
         
-        return valid; 
     }
     
     /**
@@ -265,7 +262,7 @@ public class Player {
      * @return 
      */
     public boolean canISteal(){
-        return false; 
+        return false; //cambiar
     }
     /**
      * Método canYouGiveMeAtreasure()
@@ -293,7 +290,8 @@ public class Player {
     private void haveStolen(){
         if(!this.hiddenTreasures.isEmpty())
             this.canISteal = false;
-        
+        else
+            this.canISteal = true;
     }
     
     /**
@@ -301,6 +299,11 @@ public class Player {
      */
     public void discardAllTreasures(){
         
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" + "enemy=" + enemy + ", hiddenTreasures=" + hiddenTreasures + ", visibleTreasures=" + visibleTreasures + ", pendingBadConsequence=" + pendingBadConsequence + ", name=" + name + ", level=" + level + ", dead=" + dead + ", canISteal=" + canISteal + '}';
     }
             
 }

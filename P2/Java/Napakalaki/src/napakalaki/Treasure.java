@@ -29,7 +29,7 @@ public class Treasure {
      **/
     
     public Treasure(String n,int bonus, TreasureKind t) {
-        this.name = name;
+        this.name = n;
         this.bonus = bonus;
         this.type = t;
     }

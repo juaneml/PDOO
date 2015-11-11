@@ -2,16 +2,24 @@ include Singleton
 
 class Napakalaki
     
-    @@instance = null
+    #@@instance = nil
 #    Constructor
 
-    def initialize(currentPlayer,players,dealer,currentMonster,unusedMonsters)
-        @currentPlayer = currentPlayer
-        @players = players
-        @dealer = dealer
-        @currentMonster = currentMonster
-        @unusedMonsters = unusedMonsters
+#    def initialize(currentPlayer,players,dealer,currentMonster,unusedMonsters)
+#        @currentPlayer = currentPlayer
+#        @players = players
+#        @dealer = dealer
+#        @currentMonster = currentMonster
+#        @unusedMonsters = unusedMonsters
+#    end
+    def initialize()
+        @currentPlayer
+        @players
+        @dealer
+        @currentMonster       
     end
+    
+    #attr_accesor :currentPlayer, :player, :dealer, :currentMonster
     
     ## getCurrentPlayer
     ## getCurrentMonster
@@ -38,11 +46,12 @@ class Napakalaki
         
     end
     
-    private 
-    def self.getInstance()
-        @@instance = Napakalaki.instance
-    end
-    
+#    private 
+#    def self.getInstance()
+#        @@instance = Napakalaki.instance
+#    end
+#   
+    public
     def devlopCaombat()
         
     end

@@ -7,7 +7,7 @@ require_relative 'TreasureKind.rb'
 class BadConsequence
 
     # CONSTANTE
-    MAXTREASURES = 10
+    @@MAXTREASURES = 10
     
     #  @text #String que representa lo que dice el mal royo
     #  @levels # int para representar los niveles que se pierden
@@ -65,7 +65,7 @@ class BadConsequence
     
     def isEmpty()
         vacio = false
-         if @nHiddenTreasures == 0 && @nVisibleTreasures==0 && @levels == 0  && @death == false  && @specificVisibleTreasures.isEmpty  && @specificHiddenTreasures.isEmpty
+        if @nHiddenTreasures == 0 && @nVisibleTreasures==0  && @death == false  && @specificVisibleTreasures.empty?  && @specificHiddenTreasures.empty?
             vacio = true;
          end
             vacio

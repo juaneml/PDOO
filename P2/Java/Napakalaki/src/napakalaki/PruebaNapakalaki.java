@@ -248,6 +248,8 @@ public class PruebaNapakalaki {
 //       System.out.println("Total " + total +"\n");
 //    }
 //   
+        /* Practica 2*/
+        // int numero = Dice.getInstance().nextNumber();
     }
     }
     
